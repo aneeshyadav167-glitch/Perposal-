@@ -1,113 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Valentine Proposal 💖</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      background: pink;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<title>For Someone Special 💖</title>
 
-    h1 {
-      margin-top: 100px;
-      color: #fff;
-      font-size: 28px;
-    }
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fecfef);
+  overflow: hidden;
+}
 
-    .btn {
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin: 20px;
-      position: relative;
-    }
+/* Heading */
+h1 {
+  margin-top: 120px;
+  color: white;
+  font-size: 32px;
+  text-shadow: 0 0 15px rgba(255,255,255,0.9);
+  animation: fadeIn 2s ease-in-out;
+}
 
-    #yes {
-      background-color: #4CAF50;
-      color: white;
-    }
+/* Buttons */
+.btn {
+  padding: 15px 40px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 20px;
+  transition: 0.3s;
+}
 
-    #no {
-      background-color: #f44336;
-      color: white;
-      position: absolute;
-    }
+#yes {
+  background: linear-gradient(45deg, #00c853, #69f0ae);
+  color: white;
+  box-shadow: 0 0 20px rgba(0,255,0,0.7);
+}
 
-    .hearts {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
+#yes:hover {
+  transform: scale(1.15);
+}
 
-    .heart {
-      position: absolute;
-      color: red;
-      font-size: 20px;
-      animation: float 5s linear infinite;
-    }
+#no {
+  background: linear-gradient(45deg, #ff1744, #ff8a80);
+  color: white;
+  position: absolute;
+  box-shadow: 0 0 20px rgba(255,0,0,0.7);
+}
 
-    @keyframes float {
-      from { transform: translateY(100vh); }
-      to { transform: translateY(-10vh); }
-    }
-  </style>
+/* Floating Hearts */
+.heart {
+  position: absolute;
+  color: #ff4d6d;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
+
 <body>
 
 <h1 id="question">
   Why are you waiting for? 💖<br>
-  I like you, do you like me as your partner?
+  I like you, do you like me as my partner? 😍
 </h1>
 
 <button class="btn" id="yes">Yes 💚</button>
 <button class="btn" id="no">No 💔</button>
 
-<div class="hearts" id="hearts"></div>
-
 <script>
-  const noBtn = document.getElementById("no");
-  const yesBtn = document.getElementById("yes");
-  const question = document.getElementById("question");
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const question = document.getElementById("question");
 
-  // NO button moves randomly
-  noBtn.addEventListener("mouseover", () => {
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-  });
+/* NO button bhaagega 😂 */
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
 
-  // YES button click
-  yesBtn.addEventListener("click", () => {
-    document.body.style.background = "lightgreen";
-    question.innerHTML = "🎉 Congratulations! 💖 She said YES!";
-    yesBtn.style.display = "none";
-    noBtn.style.display = "none";
-  });
+/* YES click effect 💖 */
+yesBtn.addEventListener("click", () => {
+  document.body.style.background = "linear-gradient(135deg, #a8ff78, #78ffd6)";
+  question.innerHTML = "💖 Yayyy! I knew it 😍💍";
 
-  // Floating hearts
-  const heartsContainer = document.getElementById("hearts");
+  document.body.innerHTML += "<h2 style='color:white;margin-top:20px;'>Now you're mine 😏💖</h2>";
 
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.innerHTML = "💖";
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
-    heartsContainer.appendChild(heart);
+  yesBtn.style.display = "none";
+  noBtn.style.display = "none";
+});
 
-    setTimeout(() => {
-      heart.remove();
-    }, 5000);
-  }, 300);
+/* Floating hearts */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 25 + 15) + "px";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 200);
+
 </script>
 
 </body>
