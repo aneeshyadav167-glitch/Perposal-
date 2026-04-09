@@ -32,11 +32,11 @@ body {
   z-index: 0;
 }
 
-/* Content */
+/* Content (👇 yaha change kiya hai) */
 .content {
   position: relative;
   z-index: 1;
-  padding-top: 15vh;
+  padding-top: 30vh; /* 👈 pehle 15vh tha, ab niche aa gaya */
 }
 
 /* Heading */
@@ -92,10 +92,14 @@ h1 {
   }
 }
 
-/* Mobile responsive */
+/* Mobile */
 @media (max-width: 600px) {
   h1 {
     font-size: 22px;
+  }
+
+  .content {
+    padding-top: 35vh; /* 👈 mobile me aur niche */
   }
 
   .btn {
@@ -125,7 +129,7 @@ const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
 const question = document.getElementById("question");
 
-/* NO button moves */
+/* NO button */
 noBtn.addEventListener("mouseover", () => {
   const x = Math.random() * (window.innerWidth - 100);
   const y = Math.random() * (window.innerHeight - 50);
