@@ -10,8 +10,19 @@ body {
   padding: 0;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ff9a9e, #fecfef);
+  background: url('60DB54AC-25EE-481E-A9DA-98C42EF08BFB.png') no-repeat center center/cover;
   overflow: hidden;
+}
+
+/* Dark overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
 }
 
 /* Heading */
@@ -51,7 +62,7 @@ h1 {
   box-shadow: 0 0 20px rgba(255,0,0,0.7);
 }
 
-/* Floating Hearts */
+/* Floating hearts */
 .heart {
   position: absolute;
   color: #ff4d6d;
@@ -77,6 +88,8 @@ h1 {
 </head>
 
 <body>
+
+<div class="overlay"></div>
 
 <h1 id="question">
   Why are you waiting for? 💖<br>
